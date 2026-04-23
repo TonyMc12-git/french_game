@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">French Game icon</title>
+  <desc id="desc">A stylized French flag with a playful ribbon wave.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#091a2d"/>
+      <stop offset="1" stop-color="#15385f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#02101d" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <path d="M94 124c53-18 99 16 162 8 56-7 93-44 162-30v245c-54-14-98 20-156 30-67 12-114-23-168-6V124z" fill="#f7f6f2"/>
+    <path d="M94 124c42-14 80 5 124 10v243c-48-8-84-29-124-18V124z" fill="#1d4fa3"/>
+    <path d="M310 131c38-8 71-24 108-19v235c-37-10-71 6-108 17V131z" fill="#d6323b"/>
+    <path d="M138 166c35 18 74 22 112 18v48c-39 4-78-2-112-18v-48z" fill="#ffffff" opacity="0.26"/>
+  </g>
+</svg>

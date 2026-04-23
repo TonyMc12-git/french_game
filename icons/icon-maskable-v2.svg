@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">French Game maskable icon</title>
+  <desc id="desc">A centered French tricolor flag inside a rounded square.</desc>
+  <rect width="512" height="512" rx="144" fill="#0f3154"/>
+  <rect x="96" y="112" width="320" height="288" rx="56" fill="#f7f6f2"/>
+  <rect x="96" y="112" width="106.67" height="288" rx="56" fill="#1d4fa3"/>
+  <rect x="309.33" y="112" width="106.67" height="288" rx="56" fill="#d6323b"/>
+  <path d="M138 172c38 18 87 21 140 11 40-8 79-25 96-37v42c-18 12-56 27-96 35-53 10-102 7-140-11v-40z" fill="#ffffff" opacity="0.24"/>
+</svg>
