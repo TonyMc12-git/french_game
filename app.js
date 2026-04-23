@@ -1,4 +1,4 @@
-const APP_VERSION = "20260423-french9";
+const APP_VERSION = "20260423-french10";
 const HIGH_SCORE_KEY = "frenchGameHighScore";
 
 const rounds = [
@@ -522,6 +522,20 @@ function registerServiceWorker() {
   }
 
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register(`./sw.js?v=${APP_VERSION}`).catch(() => {});
+    navigator.serviceWorker.getRegistrations()
+      .then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
+      .then(() => caches.keys())
+      .then((keys) => Promise.all(
+        keys.filter((key) => key.startsWith("french-game-pwa-")).map((key) => caches.delete(key))
+      ))
+      .then(() => {
+        if (sessionStorage.getItem("frenchCacheCleared") === APP_VERSION) {
+          return;
+        }
+
+        sessionStorage.setItem("frenchCacheCleared", APP_VERSION);
+        window.location.replace(`./index.html?app-version=${APP_VERSION}`);
+      })
+      .catch(() => {});
   });
 }
