@@ -1,111 +1,108 @@
-const APP_VERSION = "20260423-french2";
+const APP_VERSION = "20260423-french3";
 const HIGH_SCORE_KEY = "frenchGameHighScore";
 
 const rounds = [
-  { prompt: "bonjour", answers: ["hello", "good morning"] },
-  { prompt: "bonsoir", answers: ["good evening"] },
-  { prompt: "bonne nuit", answers: ["good night"] },
-  { prompt: "au revoir", answers: ["goodbye", "bye"] },
-  { prompt: "a bientot", answers: ["see you soon"] },
-  { prompt: "a demain", answers: ["see you tomorrow"] },
-  { prompt: "a tout a l'heure", answers: ["see you later"] },
-  { prompt: "a tout de suite", answers: ["see you in a moment"] },
-  { prompt: "a la prochaine", answers: ["see you next time"] },
-  { prompt: "merci", answers: ["thank you", "thanks"] },
-  { prompt: "s'il vous plait", answers: ["please"] },
-  { prompt: "oui", answers: ["yes"] },
-  { prompt: "non", answers: ["no"] },
-  { prompt: "excusez-moi", answers: ["excuse me"] },
-  { prompt: "pardon", answers: ["sorry", "pardon me"] },
-  { prompt: "comment ca va", answers: ["how are you"] },
-  { prompt: "ca va", answers: ["i'm fine", "okay", "it's going well"] },
-  { prompt: "je m'appelle", answers: ["my name is"] },
-  { prompt: "je suis", answers: ["i am"] },
-  { prompt: "tu t'appelles comment", answers: ["what's your name"] },
-  { prompt: "j'ai faim", answers: ["i am hungry"] },
-  { prompt: "j'ai soif", answers: ["i am thirsty"] },
-  { prompt: "je suis fatigue", answers: ["i am tired"] },
-  { prompt: "je suis content", answers: ["i am happy"] },
-  { prompt: "je suis triste", answers: ["i am sad"] },
-  { prompt: "je suis perdu", answers: ["i am lost"] },
-  { prompt: "aide-moi", answers: ["help me"] },
-  { prompt: "bien sur", answers: ["of course"] },
-  { prompt: "peut-etre", answers: ["maybe"] },
-  { prompt: "d'accord", answers: ["okay", "all right"] },
-  { prompt: "bon appetit", answers: ["enjoy your meal"] },
-  { prompt: "ou habites-tu", answers: ["where do you live"] },
-  { prompt: "j'habite a londres", answers: ["i live in london"] },
-  { prompt: "quelle heure est-il", answers: ["what time is it"] },
-  { prompt: "il est midi", answers: ["it is noon"] },
-  { prompt: "il est une heure", answers: ["it is one o'clock"] },
-  { prompt: "combien ca coute", answers: ["how much does it cost"] },
-  { prompt: "je ne comprends pas", answers: ["i don't understand"] },
-  { prompt: "parlez-vous anglais", answers: ["do you speak english"] },
-  { prompt: "comment dit-on", answers: ["how do you say"] },
-  { prompt: "je voudrais", answers: ["i would like"] },
-  { prompt: "un cafe s'il vous plait", answers: ["a coffee please"] },
-  { prompt: "de l'eau", answers: ["water", "some water"] },
-  { prompt: "le pain", answers: ["bread", "the bread"] },
-  { prompt: "le fromage", answers: ["cheese", "the cheese"] },
-  { prompt: "la pomme", answers: ["apple", "the apple"] },
-  { prompt: "le chien", answers: ["dog", "the dog"] },
-  { prompt: "le chat", answers: ["cat", "the cat"] },
-  { prompt: "la maison", answers: ["house", "the house"] },
-  { prompt: "l'ecole", answers: ["school", "the school"] },
-  { prompt: "le livre", answers: ["book", "the book"] },
-  { prompt: "la voiture", answers: ["car", "the car"] },
-  { prompt: "le soleil", answers: ["sun", "the sun"] },
-  { prompt: "la lune", answers: ["moon", "the moon"] },
-  { prompt: "aujourd'hui", answers: ["today"] },
-  { prompt: "demain", answers: ["tomorrow"] },
-  { prompt: "hier", answers: ["yesterday"] },
-  { prompt: "maintenant", answers: ["now"] },
-  { prompt: "toujours", answers: ["always"] },
-  { prompt: "jamais", answers: ["never"] },
-  { prompt: "souvent", answers: ["often"] },
-  { prompt: "parfois", answers: ["sometimes"] },
-  { prompt: "ici", answers: ["here"] },
-  { prompt: "la-bas", answers: ["there", "over there"] },
-  { prompt: "gauche", answers: ["left"] },
-  { prompt: "droite", answers: ["right"] },
-  { prompt: "tout droit", answers: ["straight ahead", "straight on"] },
-  { prompt: "ouvrez le livre", answers: ["open the book"] },
-  { prompt: "fermez la porte", answers: ["close the door"] },
-  { prompt: "ecoutez", answers: ["listen"] },
-  { prompt: "regardez", answers: ["look"] },
-  { prompt: "asseyez-vous", answers: ["sit down"] },
-  { prompt: "levez-vous", answers: ["stand up"] },
-  { prompt: "j'aime", answers: ["i like", "i love"] },
-  { prompt: "je n'aime pas", answers: ["i don't like", "i do not like"] },
-  { prompt: "c'est bon", answers: ["it's good", "it tastes good"] },
-  { prompt: "c'est mauvais", answers: ["it's bad"] },
-  { prompt: "il fait chaud", answers: ["it is hot"] },
-  { prompt: "il fait froid", answers: ["it is cold"] },
-  { prompt: "il pleut", answers: ["it is raining"] },
-  { prompt: "il neige", answers: ["it is snowing"] },
-  { prompt: "ou est la gare", answers: ["where is the station"] },
-  { prompt: "ou sont les toilettes", answers: ["where is the toilet", "where is the bathroom"] },
-  { prompt: "viens ici", answers: ["come here"] },
-  { prompt: "attends une minute", answers: ["wait a minute"] },
-  { prompt: "bon anniversaire", answers: ["happy birthday"] },
-  { prompt: "joyeux noel", answers: ["merry christmas"] },
-  { prompt: "bonne annee", answers: ["happy new year"] },
-  { prompt: "a tes souhaits", answers: ["bless you"] },
-  { prompt: "je peux entrer", answers: ["may i come in"] }
+  { prompt: "bonjour", answer: "hello" },
+  { prompt: "bonsoir", answer: "good evening" },
+  { prompt: "bonne nuit", answer: "good night" },
+  { prompt: "au revoir", answer: "goodbye" },
+  { prompt: "a bientot", answer: "see you soon" },
+  { prompt: "a demain", answer: "see you tomorrow" },
+  { prompt: "a tout a l'heure", answer: "see you later" },
+  { prompt: "a tout de suite", answer: "see you in a moment" },
+  { prompt: "a la prochaine", answer: "see you next time" },
+  { prompt: "merci", answer: "thank you" },
+  { prompt: "s'il vous plait", answer: "please" },
+  { prompt: "oui", answer: "yes" },
+  { prompt: "non", answer: "no" },
+  { prompt: "excusez-moi", answer: "excuse me" },
+  { prompt: "pardon", answer: "sorry" },
+  { prompt: "comment ca va", answer: "how are you" },
+  { prompt: "ca va", answer: "i'm fine" },
+  { prompt: "je m'appelle", answer: "my name is" },
+  { prompt: "je suis", answer: "i am" },
+  { prompt: "tu t'appelles comment", answer: "what's your name" },
+  { prompt: "j'ai faim", answer: "i am hungry" },
+  { prompt: "j'ai soif", answer: "i am thirsty" },
+  { prompt: "je suis fatigue", answer: "i am tired" },
+  { prompt: "je suis content", answer: "i am happy" },
+  { prompt: "je suis triste", answer: "i am sad" },
+  { prompt: "je suis perdu", answer: "i am lost" },
+  { prompt: "aide-moi", answer: "help me" },
+  { prompt: "bien sur", answer: "of course" },
+  { prompt: "peut-etre", answer: "maybe" },
+  { prompt: "d'accord", answer: "okay" },
+  { prompt: "bon appetit", answer: "enjoy your meal" },
+  { prompt: "ou habites-tu", answer: "where do you live" },
+  { prompt: "j'habite a londres", answer: "i live in london" },
+  { prompt: "quelle heure est-il", answer: "what time is it" },
+  { prompt: "il est midi", answer: "it is noon" },
+  { prompt: "il est une heure", answer: "it is one o'clock" },
+  { prompt: "combien ca coute", answer: "how much does it cost" },
+  { prompt: "je ne comprends pas", answer: "i don't understand" },
+  { prompt: "parlez-vous anglais", answer: "do you speak english" },
+  { prompt: "comment dit-on", answer: "how do you say" },
+  { prompt: "je voudrais", answer: "i would like" },
+  { prompt: "un cafe s'il vous plait", answer: "a coffee please" },
+  { prompt: "de l'eau", answer: "water" },
+  { prompt: "le pain", answer: "bread" },
+  { prompt: "le fromage", answer: "cheese" },
+  { prompt: "la pomme", answer: "apple" },
+  { prompt: "le chien", answer: "dog" },
+  { prompt: "le chat", answer: "cat" },
+  { prompt: "la maison", answer: "house" },
+  { prompt: "l'ecole", answer: "school" },
+  { prompt: "le livre", answer: "book" },
+  { prompt: "la voiture", answer: "car" },
+  { prompt: "le soleil", answer: "sun" },
+  { prompt: "la lune", answer: "moon" },
+  { prompt: "aujourd'hui", answer: "today" },
+  { prompt: "demain", answer: "tomorrow" },
+  { prompt: "hier", answer: "yesterday" },
+  { prompt: "maintenant", answer: "now" },
+  { prompt: "toujours", answer: "always" },
+  { prompt: "jamais", answer: "never" },
+  { prompt: "souvent", answer: "often" },
+  { prompt: "parfois", answer: "sometimes" },
+  { prompt: "ici", answer: "here" },
+  { prompt: "la-bas", answer: "there" },
+  { prompt: "gauche", answer: "left" },
+  { prompt: "droite", answer: "right" },
+  { prompt: "tout droit", answer: "straight ahead" },
+  { prompt: "ouvrez le livre", answer: "open the book" },
+  { prompt: "fermez la porte", answer: "close the door" },
+  { prompt: "ecoutez", answer: "listen" },
+  { prompt: "regardez", answer: "look" },
+  { prompt: "asseyez-vous", answer: "sit down" },
+  { prompt: "levez-vous", answer: "stand up" },
+  { prompt: "j'aime", answer: "i like" },
+  { prompt: "je n'aime pas", answer: "i don't like" },
+  { prompt: "c'est bon", answer: "it's good" },
+  { prompt: "c'est mauvais", answer: "it's bad" },
+  { prompt: "il fait chaud", answer: "it is hot" },
+  { prompt: "il fait froid", answer: "it is cold" },
+  { prompt: "il pleut", answer: "it is raining" },
+  { prompt: "il neige", answer: "it is snowing" },
+  { prompt: "ou est la gare", answer: "where is the station" },
+  { prompt: "ou sont les toilettes", answer: "where is the toilet" },
+  { prompt: "viens ici", answer: "come here" },
+  { prompt: "attends une minute", answer: "wait a minute" },
+  { prompt: "bon anniversaire", answer: "happy birthday" },
+  { prompt: "joyeux noel", answer: "merry christmas" },
+  { prompt: "bonne annee", answer: "happy new year" },
+  { prompt: "a tes souhaits", answer: "bless you" },
+  { prompt: "je peux entrer", answer: "may i come in" }
 ];
 
-const translationPool = buildTranslationPool(rounds);
+const translationPool = [...new Set(rounds.map((round) => round.answer))];
 
 const promptTextEl = document.getElementById("prompt-text");
-const promptCopyEl = document.getElementById("prompt-copy");
 const optionsGridEl = document.getElementById("options-grid");
 const scoreEl = document.getElementById("score");
 const scoreContextEl = document.getElementById("score-context");
 const pointsScoreEl = document.getElementById("points-score");
 const roundTimerEl = document.getElementById("round-timer");
 const highScoreEl = document.getElementById("high-score");
-const checkButtonEl = document.getElementById("check-button");
-const clearButtonEl = document.getElementById("clear-button");
 const newGameButtonEl = document.getElementById("new-game-button");
 const bonusToastEl = document.getElementById("bonus-toast");
 const celebrationEl = document.getElementById("celebration");
@@ -117,28 +114,25 @@ const celebrationButtonEl = document.getElementById("celebration-button");
 const state = {
   deck: [],
   currentRound: null,
-  currentOptions: [],
-  selectedAnswers: new Set(),
   points: 0,
   highScore: 0,
   correct: 0,
   presented: 0,
   correctStreak: 0,
-  streakElapsedMs: 0,
   timerId: null,
   timerSegmentStartedAt: 0,
+  streakElapsedMs: 0,
   resetTimerOnNextRound: false,
   isLocked: false,
   isComplete: false,
-  bonusTimer: null,
+  feedbackTimer: null,
   feedbackReadyAt: 0,
-  feedbackTimer: null
+  bonusTimer: null
 };
 
 registerServiceWorker();
+renderPoints();
 resetGame();
-checkButtonEl.addEventListener("click", checkAnswer);
-clearButtonEl.addEventListener("click", clearSelection);
 newGameButtonEl.addEventListener("click", resetGame);
 celebrationButtonEl.addEventListener("click", () => {
   if (Date.now() < state.feedbackReadyAt) {
@@ -151,12 +145,18 @@ celebrationButtonEl.addEventListener("click", () => {
   }
 });
 
+window.addEventListener("resize", () => {
+  window.requestAnimationFrame(() => {
+    fitOptionText();
+    fitPromptText();
+    fitScoreText();
+  });
+});
+
 function resetGame() {
   stopRoundTimer();
   state.deck = shuffleList(rounds);
   state.currentRound = null;
-  state.currentOptions = [];
-  state.selectedAnswers = new Set();
   state.points = 0;
   state.correct = 0;
   state.presented = 0;
@@ -171,6 +171,7 @@ function resetGame() {
   renderPoints();
   renderTimer(0);
   scoreContextEl.textContent = `of ${rounds.length} phrases`;
+  fitScoreText();
   startRound();
 }
 
@@ -181,19 +182,16 @@ function startRound() {
   }
 
   state.currentRound = state.deck.pop();
-  state.currentOptions = buildOptions(state.currentRound);
-  state.selectedAnswers = new Set();
   state.isLocked = false;
   promptTextEl.textContent = state.currentRound.prompt;
-  promptCopyEl.textContent = "Some rounds have more than one correct English answer, so select all that fit before checking.";
-  renderOptions();
-  updateActionButtons();
+  renderOptions(buildOptions(state.currentRound));
+  fitPromptText();
   startRoundTimer();
 }
 
 function buildOptions(round) {
-  const options = new Set(round.answers);
-  const distractors = shuffleList(translationPool.filter((entry) => !options.has(entry)));
+  const options = new Set([round.answer]);
+  const distractors = shuffleList(translationPool.filter((entry) => entry !== round.answer));
   for (const distractor of distractors) {
     if (options.size >= 20) {
       break;
@@ -203,144 +201,91 @@ function buildOptions(round) {
   return shuffleList([...options]);
 }
 
-function renderOptions() {
+function renderOptions(options) {
   optionsGridEl.innerHTML = "";
-  state.currentOptions.forEach((translation) => {
+  options.forEach((translation) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "option-button";
     button.textContent = translation;
-    bindTap(button, () => toggleSelection(translation, button));
+    bindPress(button, () => chooseAnswer(translation, button));
     optionsGridEl.appendChild(button);
   });
+
+  window.requestAnimationFrame(fitOptionText);
 }
 
-function toggleSelection(translation, button) {
+function chooseAnswer(translation, button) {
   if (state.isLocked) {
-    return;
-  }
-
-  if (state.selectedAnswers.has(translation)) {
-    state.selectedAnswers.delete(translation);
-    button.classList.remove("selected");
-  } else {
-    state.selectedAnswers.add(translation);
-    button.classList.add("selected");
-  }
-
-  updateActionButtons();
-}
-
-function clearSelection() {
-  if (state.isLocked) {
-    return;
-  }
-
-  state.selectedAnswers.clear();
-  [...optionsGridEl.querySelectorAll(".option-button")].forEach((button) => {
-    button.classList.remove("selected");
-  });
-  updateActionButtons();
-}
-
-function updateActionButtons() {
-  const hasSelection = state.selectedAnswers.size > 0;
-  checkButtonEl.disabled = state.isLocked || !hasSelection;
-  clearButtonEl.disabled = state.isLocked || !hasSelection;
-}
-
-function checkAnswer() {
-  if (state.isLocked || state.selectedAnswers.size === 0) {
     return;
   }
 
   state.isLocked = true;
   const roundMs = stopRoundTimer();
-  const correctAnswers = new Set(state.currentRound.answers);
-  const missed = [...correctAnswers].filter((answer) => !state.selectedAnswers.has(answer));
-  const extras = [...state.selectedAnswers].filter((answer) => !correctAnswers.has(answer));
-  const isCorrect = missed.length === 0 && extras.length === 0;
-
+  const isCorrect = translation === state.currentRound.answer;
   state.presented += 1;
   if (isCorrect) {
     state.correct += 1;
   }
 
-  applyScoring(isCorrect, state.currentRound.answers.length * 10, roundMs);
+  applyScoring(isCorrect, 10, roundMs);
 
-  [...optionsGridEl.querySelectorAll(".option-button")].forEach((button) => {
-    button.disabled = true;
-    if (correctAnswers.has(button.textContent)) {
-      button.classList.add("correct");
-    } else if (state.selectedAnswers.has(button.textContent)) {
-      button.classList.add("incorrect");
+  [...optionsGridEl.querySelectorAll(".option-button")].forEach((optionButton) => {
+    optionButton.disabled = true;
+    if (optionButton.textContent === state.currentRound.answer) {
+      optionButton.classList.add("correct");
     }
   });
 
-  updateActionButtons();
-  renderScore();
-  showFeedback(isCorrect, missed, extras);
-}
-
-function showFeedback(isCorrect, missed, extras) {
-  celebrationEl.classList.toggle("wrong", !isCorrect);
-  celebrationKickerEl.textContent = isCorrect ? "Correct" : "Answer";
-  celebrationTitleEl.textContent = state.currentRound.prompt;
-
-  if (isCorrect) {
-    celebrationCopyEl.textContent = `Valid answers: ${state.currentRound.answers.join(", ")}.`;
-  } else {
-    const parts = [`Valid answers: ${state.currentRound.answers.join(", ")}.`];
-    if (missed.length > 0) {
-      parts.push(`Missed: ${missed.join(", ")}.`);
-    }
-    if (extras.length > 0) {
-      parts.push(`Extra: ${extras.join(", ")}.`);
-    }
-    celebrationCopyEl.textContent = parts.join(" ");
+  if (!isCorrect) {
+    button.classList.add("incorrect");
   }
 
-  showCelebration();
+  renderScore();
+  showRoundResult(isCorrect);
+}
+
+function showRoundResult(isCorrect) {
+  celebrationEl.classList.toggle("wrong", !isCorrect);
+  celebrationKickerEl.textContent = isCorrect ? "Correct" : "Answer";
+  celebrationTitleEl.textContent = state.currentRound.answer;
+  celebrationCopyEl.textContent = "";
+  showFeedback();
 }
 
 function finishGame() {
   state.isLocked = true;
   state.isComplete = true;
   stopRoundTimer();
-  promptTextEl.textContent = "Set complete";
-  promptCopyEl.textContent = "You finished the full beginner phrase deck. Tap New game to reshuffle the set.";
+  promptTextEl.textContent = "Finished";
   optionsGridEl.innerHTML = "";
-  updateActionButtons();
   celebrationEl.classList.remove("wrong");
   celebrationKickerEl.textContent = "Complete";
   celebrationTitleEl.textContent = "Full Set Done";
-  celebrationCopyEl.textContent = `You finished ${rounds.length} phrases.`;
-  showCelebration();
+  celebrationCopyEl.textContent = "";
+  showFeedback();
 }
 
-function showCelebration() {
+function showFeedback() {
   window.clearTimeout(state.feedbackTimer);
-  state.feedbackReadyAt = Date.now() + 300;
+  state.feedbackReadyAt = Date.now() + 400;
   celebrationButtonEl.disabled = true;
   celebrationEl.classList.add("show");
   celebrationEl.setAttribute("aria-hidden", "false");
   state.feedbackTimer = window.setTimeout(() => {
     celebrationButtonEl.disabled = false;
-  }, 300);
+  }, 400);
 }
 
 function hideCelebration() {
+  window.clearTimeout(state.feedbackTimer);
+  celebrationButtonEl.disabled = false;
   celebrationEl.classList.remove("show");
   celebrationEl.setAttribute("aria-hidden", "true");
 }
 
 function renderScore() {
   scoreEl.textContent = `${state.correct} / ${state.presented}`;
-}
-
-function renderPoints() {
-  pointsScoreEl.textContent = state.points;
-  highScoreEl.textContent = state.highScore;
 }
 
 function startRoundTimer() {
@@ -390,9 +335,12 @@ function applyScoring(isCorrect, basePoints, roundMs) {
       bonusMessages.push("+100 streak bonus");
 
       const streakSeconds = roundMs / 1000;
-      if (streakSeconds <= 14) {
-        state.points += 250;
-        bonusMessages.push("+250 speed bonus");
+      if (streakSeconds <= 10) {
+        state.points += 400;
+        bonusMessages.push("+400 10-in-10 bonus");
+      } else if (streakSeconds <= 20) {
+        state.points += 200;
+        bonusMessages.push("+200 10-in-20 bonus");
       }
     }
   } else {
@@ -406,6 +354,11 @@ function applyScoring(isCorrect, basePoints, roundMs) {
   if (bonusMessages.length > 0) {
     showBonusToast(bonusMessages.join(" / "));
   }
+}
+
+function renderPoints() {
+  pointsScoreEl.textContent = state.points;
+  highScoreEl.textContent = state.highScore;
 }
 
 function updateHighScore() {
@@ -441,6 +394,36 @@ function showBonusToast(message) {
   }, 1400);
 }
 
+function fitOptionText() {
+  [...optionsGridEl.querySelectorAll(".option-button")].forEach((button) => {
+    fitTextToBox(button, { minSize: 10, step: 0.5 });
+  });
+}
+
+function fitPromptText() {
+  fitTextToBox(promptTextEl, { minSize: 22, step: 1 });
+}
+
+function fitScoreText() {
+  fitTextToBox(scoreContextEl, { minSize: 9, step: 0.5 });
+}
+
+function fitTextToBox(element, options = {}) {
+  const minSize = options.minSize || 10;
+  const step = options.step || 1;
+  element.style.fontSize = "";
+  let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
+
+  while (fontSize > minSize && doesTextOverflow(element)) {
+    fontSize -= step;
+    element.style.fontSize = `${fontSize}px`;
+  }
+}
+
+function doesTextOverflow(element) {
+  return element.scrollWidth > element.clientWidth + 1 || element.scrollHeight > element.clientHeight + 1;
+}
+
 function shuffleList(items) {
   const copy = items.slice();
   for (let index = copy.length - 1; index > 0; index -= 1) {
@@ -450,6 +433,20 @@ function shuffleList(items) {
   return copy;
 }
 
+function bindPress(button, onChoose) {
+  button.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    button.classList.add("pressing");
+    onChoose();
+  });
+  button.addEventListener("pointerup", () => {
+    button.classList.remove("pressing");
+  });
+  button.addEventListener("pointercancel", () => {
+    button.classList.remove("pressing");
+  });
+}
+
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) {
     return;
@@ -457,36 +454,5 @@ function registerServiceWorker() {
 
   window.addEventListener("load", () => {
     navigator.serviceWorker.register(`./sw.js?v=${APP_VERSION}`).catch(() => {});
-  });
-}
-
-function buildTranslationPool(roundList) {
-  const uniqueAnswers = new Set();
-  roundList.forEach((round) => {
-    round.answers.forEach((answer) => uniqueAnswers.add(answer));
-  });
-  return [...uniqueAnswers];
-}
-
-function bindTap(button, onTap) {
-  let touchHandledAt = 0;
-
-  button.addEventListener("pointerdown", () => button.classList.add("pressing"));
-  button.addEventListener("pointerup", () => button.classList.remove("pressing"));
-  button.addEventListener("pointercancel", () => button.classList.remove("pressing"));
-
-  button.addEventListener("touchstart", () => button.classList.add("pressing"), { passive: true });
-  button.addEventListener("touchend", () => {
-    button.classList.remove("pressing");
-    touchHandledAt = Date.now();
-    onTap();
-  }, { passive: true });
-  button.addEventListener("touchcancel", () => button.classList.remove("pressing"), { passive: true });
-
-  button.addEventListener("click", () => {
-    if (Date.now() - touchHandledAt < 700) {
-      return;
-    }
-    onTap();
   });
 }

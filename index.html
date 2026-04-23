@@ -12,7 +12,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/icon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260423-french2">
+  <link rel="stylesheet" href="styles.css?v=20260423-french3">
 </head>
 <body>
   <main class="app-shell">
@@ -20,35 +20,30 @@
       <header class="top-bar">
         <div class="title-block">
           <h1>French Game</h1>
-          <p class="subtitle">Select every English translation that fits the French word or phrase.</p>
+          <div class="player-stats" aria-label="Points and timer">
+            <span><em>Pts</em> <strong id="points-score">0</strong></span>
+            <span><em>Time</em> <strong id="round-timer">000.0s</strong></span>
+            <span><em>Best</em> <strong id="high-score">0</strong></span>
+            <button class="end-game-button" id="new-game-button" type="button">New game</button>
+          </div>
         </div>
-        <div class="player-stats" aria-label="Game stats">
-          <span><em>Pts</em> <strong id="points-score">0</strong></span>
-          <span><em>Time</em> <strong id="round-timer">000.0s</strong></span>
-          <span><em>Best</em> <strong id="high-score">0</strong></span>
+        <div class="top-actions">
+          <div class="score-card">
+            <span class="score-label">Score</span>
+            <strong id="score">0 / 0</strong>
+            <span class="score-context" id="score-context">of 0 phrases</span>
+          </div>
         </div>
       </header>
 
-      <section class="prompt-panel">
-        <span class="prompt-kicker">French</span>
-        <strong class="prompt-country" id="prompt-text">Loading...</strong>
-        <p class="prompt-copy" id="prompt-copy">Some phrases have more than one correct translation, so choose all that fit and then check your answer.</p>
-      </section>
-
-      <section class="controls-row">
-        <div class="score-card">
-          <span class="score-label">Score</span>
-          <strong id="score">0 / 0</strong>
-          <span class="score-context" id="score-context">of 0 phrases</span>
+      <div class="prompt-stage">
+        <div class="prompt-card" aria-label="French prompt">
+          <span class="prompt-kicker">French</span>
+          <strong class="prompt-title" id="prompt-text">Loading...</strong>
         </div>
-        <div class="action-card">
-          <button class="action-button primary-button" id="check-button" type="button">Check answer</button>
-          <button class="action-button secondary-button" id="clear-button" type="button">Clear picks</button>
-          <button class="action-button secondary-button" id="new-game-button" type="button">New game</button>
-        </div>
-      </section>
+      </div>
 
-      <section class="options-grid" id="options-grid" aria-label="English choices"></section>
+      <div class="options-grid" id="options-grid" aria-label="English choices"></div>
     </section>
   </main>
 
@@ -57,12 +52,12 @@
       <span class="celebration-kicker" id="celebration-kicker"></span>
       <strong class="celebration-title" id="celebration-title"></strong>
       <span class="celebration-copy" id="celebration-copy"></span>
-      <button class="celebration-button" id="celebration-button" type="button">Next</button>
+      <button class="celebration-button" id="celebration-button" type="button">OK</button>
     </div>
   </div>
 
   <div class="bonus-toast" id="bonus-toast" aria-live="assertive" aria-hidden="true"></div>
 
-  <script src="app.js?v=20260423-french2"></script>
+  <script src="app.js?v=20260423-french3"></script>
 </body>
 </html>

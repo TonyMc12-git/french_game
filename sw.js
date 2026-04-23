@@ -1,11 +1,11 @@
-const CACHE_NAME = "french-game-pwa-v2";
-const APP_VERSION = "20260423-french2";
+const CACHE_NAME = "french-game-pwa-v3";
+const APP_VERSION = "20260423-french3";
 
 const APP_ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=20260423-french2",
-  "./app.js?v=20260423-french2",
+  "./styles.css?v=20260423-french3",
+  "./app.js?v=20260423-french3",
   "./manifest.webmanifest",
   "./icons/icon.svg",
   "./icons/icon-maskable.svg"
@@ -41,6 +41,10 @@ self.addEventListener("fetch", (event) => {
       }
 
       return fetch(event.request).then((response) => {
+        if (!response || response.status !== 200) {
+          return response;
+        }
+
         const responseCopy = response.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseCopy));
         return response;
