@@ -199,7 +199,10 @@ h1 {
 
 .prompt-card[aria-label="French prompt"] .prompt-title {
   display: block;
-  transform: translateY(-0.08em);
+  line-height: 1.04;
+  margin-top: -0.08em;
+  padding-bottom: 0.14em;
+  overflow: visible;
 }
 
 .options-grid {
