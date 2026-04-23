@@ -1,4 +1,4 @@
-const APP_VERSION = "20260423-french10";
+const APP_VERSION = "20260423-french12";
 const HIGH_SCORE_KEY = "frenchGameHighScore";
 
 const rounds = [
