@@ -1,9 +1,10 @@
 {
+  "id": "/french_game/",
   "name": "French Game",
   "short_name": "French",
   "description": "A touch-first beginner French translation quiz.",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/french_game/index.html?v=20260423-french7",
+  "scope": "/french_game/",
   "display": "standalone",
   "background_color": "#113250",
   "theme_color": "#113250",
