@@ -31,7 +31,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p _site
-          cp -R index.html app.js styles.css manifest.webmanifest sw.js icons README.md _site/
+          cp -R index.html app.js styles.css manifest.webmanifest sw.js icons README.md apple-touch-icon.png apple-touch-icon-french-v2.png favicon-192.png favicon-192-french-v2.png _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
