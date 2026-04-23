@@ -1,16 +1,16 @@
-const CACHE_NAME = "french-game-pwa-v8";
-const APP_VERSION = "20260423-french8";
+const CACHE_NAME = "french-game-pwa-v9";
+const APP_VERSION = "20260423-french9";
 
 const APP_ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=20260423-french8",
-  "./app.js?v=20260423-french8",
-  "./manifest.webmanifest?v=20260423-french8",
-  "./favicon-192.png",
-  "./apple-touch-icon.png?v=20260423-french8",
-  "./icons/icon-192-v3.png",
-  "./icons/icon-512-v3.png"
+  "./styles.css?v=20260423-french9",
+  "./app.js?v=20260423-french9",
+  "./manifest.webmanifest?v=20260423-french9",
+  "./favicon-192-french-v2.png",
+  "./apple-touch-icon-french-v2.png?v=20260423-french9",
+  "./icons/icon-192-french-v4.png",
+  "./icons/icon-512-french-v4.png"
 ];
 
 self.addEventListener("install", (event) => {
