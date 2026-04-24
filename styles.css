@@ -161,6 +161,7 @@ h1 {
 
 .prompt-stage {
   display: grid;
+  grid-template-rows: 28px minmax(0, 1fr);
   place-items: center;
   width: 100%;
   height: 170px;
@@ -168,9 +169,38 @@ h1 {
   overflow: hidden;
 }
 
+.strike-track {
+  width: min(520px, 90vw);
+  height: 28px;
+  display: grid;
+  grid-template-columns: repeat(5, 28px);
+  justify-content: center;
+  gap: 10px;
+}
+
+.strike-pill {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(19, 37, 51, 0.16);
+  background: rgba(255, 250, 240, 0.8);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.strike-pill.used {
+  background: #ffdbe2;
+  color: #9a1834;
+  border-color: rgba(187, 51, 77, 0.34);
+}
+
 .prompt-card {
   width: min(520px, 90vw);
-  height: 100%;
+  height: 142px;
   display: grid;
   place-items: center;
   gap: 8px;
@@ -464,11 +494,25 @@ h1 {
   .prompt-stage {
     height: 126px;
     max-height: 126px;
+    grid-template-rows: 22px minmax(0, 1fr);
+  }
+
+  .strike-track {
+    width: min(300px, 86vw);
+    height: 22px;
+    grid-template-columns: repeat(5, 22px);
+    gap: 8px;
+  }
+
+  .strike-pill {
+    width: 22px;
+    height: 22px;
+    font-size: 0.68rem;
   }
 
   .prompt-card {
     width: min(300px, 86vw);
-    height: 108px;
+    height: 96px;
     gap: 4px;
     padding: 10px;
   }

@@ -1,5 +1,5 @@
-const CACHE_NAME = "french-game-pwa-v13";
-const APP_VERSION = "20260424-french13";
+const CACHE_NAME = "french-game-pwa-v14";
+const APP_VERSION = "20260424-french14";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(self.skipWaiting());

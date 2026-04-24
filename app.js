@@ -1,4 +1,4 @@
-const APP_VERSION = "20260424-french13";
+const APP_VERSION = "20260424-french14";
 const HIGH_SCORE_KEY = "frenchGameHighScore";
 
 const rounds = [
@@ -166,6 +166,7 @@ const rounds = [
 const translationPool = [...new Set(rounds.map((round) => round.answer))];
 
 const promptTextEl = document.getElementById("prompt-text");
+const strikeEls = [...document.querySelectorAll("#strike-track .strike-pill")];
 const optionsGridEl = document.getElementById("options-grid");
 const scoreEl = document.getElementById("score");
 const scoreContextEl = document.getElementById("score-context");
@@ -185,8 +186,10 @@ const state = {
   currentRound: null,
   points: 0,
   highScore: 0,
+  startingHighScore: 0,
   correct: 0,
   presented: 0,
+  strikes: 0,
   correctStreak: 0,
   timerId: null,
   timerSegmentStartedAt: 0,
@@ -229,6 +232,7 @@ function resetGame() {
   state.points = 0;
   state.correct = 0;
   state.presented = 0;
+  state.strikes = 0;
   state.correctStreak = 0;
   state.streakElapsedMs = 0;
   state.timerSegmentStartedAt = 0;
@@ -236,8 +240,10 @@ function resetGame() {
   state.isLocked = false;
   state.isComplete = false;
   state.highScore = readHighScore();
+  state.startingHighScore = state.highScore;
   renderScore();
   renderPoints();
+  renderStrikes();
   renderTimer(0);
   scoreContextEl.textContent = `of ${rounds.length} phrases`;
   fitScoreText();
@@ -308,9 +314,15 @@ function chooseAnswer(translation, button) {
 
   if (!isCorrect) {
     button.classList.add("incorrect");
+    state.strikes += 1;
+    renderStrikes();
   }
 
   renderScore();
+  if (!isCorrect && state.strikes >= 5) {
+    finishGame("strikes");
+    return;
+  }
   showRoundResult(isCorrect);
 }
 
@@ -322,17 +334,28 @@ function showRoundResult(isCorrect) {
   showFeedback();
 }
 
-function finishGame() {
+function finishGame(reason = "complete") {
   state.isLocked = true;
   state.isComplete = true;
   stopRoundTimer();
-  promptTextEl.textContent = "Finished";
+  promptTextEl.textContent = reason === "strikes" ? "Game Over" : "Finished";
   optionsGridEl.innerHTML = "";
-  celebrationEl.classList.remove("wrong");
-  celebrationKickerEl.textContent = "Complete";
-  celebrationTitleEl.textContent = "Full Set Done";
-  celebrationCopyEl.textContent = "";
-  showFeedback();
+  if (reason === "strikes" && state.points > state.startingHighScore) {
+    celebrationEl.classList.remove("wrong");
+    celebrationKickerEl.textContent = "New Best";
+    celebrationTitleEl.textContent = `${state.points} points`;
+    celebrationCopyEl.textContent = "New high score before strike five.";
+    showFeedback();
+    return;
+  }
+
+  if (reason === "complete") {
+    celebrationEl.classList.remove("wrong");
+    celebrationKickerEl.textContent = "Complete";
+    celebrationTitleEl.textContent = "Full Set Done";
+    celebrationCopyEl.textContent = "";
+    showFeedback();
+  }
 }
 
 function showFeedback() {
@@ -355,6 +378,12 @@ function hideCelebration() {
 
 function renderScore() {
   scoreEl.textContent = `${state.correct} / ${state.presented}`;
+}
+
+function renderStrikes() {
+  strikeEls.forEach((strikeEl, index) => {
+    strikeEl.classList.toggle("used", index < state.strikes);
+  });
 }
 
 function startRoundTimer() {
