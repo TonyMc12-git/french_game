@@ -1,4 +1,4 @@
-const APP_VERSION = "20260423-french12";
+const APP_VERSION = "20260424-french13";
 const HIGH_SCORE_KEY = "frenchGameHighScore";
 
 const rounds = [
@@ -267,7 +267,7 @@ function buildOptions(round) {
     }
     options.add(distractor);
   }
-  return shuffleList([...options]);
+  return sortAlphabetically([...options]);
 }
 
 function renderOptions(options) {
@@ -500,6 +500,10 @@ function shuffleList(items) {
     [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
   }
   return copy;
+}
+
+function sortAlphabetically(items) {
+  return items.slice().sort((left, right) => left.localeCompare(right, undefined, { sensitivity: "base" }));
 }
 
 function bindPress(button, onChoose) {
